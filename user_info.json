@@ -5,15 +5,6 @@
             "pin": "admin"
         },
         {
-            "user_id": "nan83",
-            "username": "nancy",
-            "pin": "8783",
-            "balance": {
-                "KES": 0,
-                "USD": 0
-            }
-        },
-        {
             "user_id": "max73",
             "username": "maxwell",
             "pin": "8973",
@@ -29,15 +20,6 @@
             "balance": {
                 "KES": 54121.0,
                 "USD": 502.28
-            }
-        },
-        {
-            "user_id": "pat02",
-            "username": "patrick",
-            "pin": "8902",
-            "balance": {
-                "KES": 85384.0,
-                "USD": 792.43
             }
         },
         {
