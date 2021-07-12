@@ -27,13 +27,15 @@ def start():
         """)
         Menu = int(input("Input-> "))
         if Menu == 1: #check for storage folder
-            clear = lambda: os.system('cls')
-            clear()
+            clear = lambda: os.system('cls') # clear screen
+            clear()# clear screen
+
             functions.log_user()
 
         elif Menu == 2: #create save file and default user
             clear = lambda: os.system('cls')
             clear()
+
             functions.call_admin()
 
         else:
@@ -75,5 +77,6 @@ def logged_in(acct_id):
 
 
 
-if __name__ == '__main__':
-    start()
+if __name__ == '__main__': #like calling a main function in java 
+#is used to execute some code only if the file was run directly, and not imported.
+    start()           

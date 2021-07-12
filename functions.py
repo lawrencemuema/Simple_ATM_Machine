@@ -4,32 +4,42 @@ import json #to save user data
 import datetime
 
 
-user_template = {} #make an empty dictionary
-user_template["data"] = [] #create an empty list as the first key / value
+# user_template = {} #make an empty dictionary
+# user_template["data"] = [] #create an empty list as the first key / value
 
 
 #################################################################################################
 def create_list():
     try:
-        path = os.getcwd()
-        path2 = path + "/user_info.json"
+        path = os.getcwd() # absolute reference of your file..E:\AWS training\PROJECTS\PyTHon\work\ATM
+        path2 = path + "/user_info.json" #E:\AWS training\PROJECTS\PyTHon\work\ATM/user_info.json
+
         isthere = os.path.exists(path2)
+        
         if isthere:     #checks if the file is already there
-            time.sleep(1)
+            time.sleep(1) #delay
             print("\tStorage file already created....")
         else:
-            user_template['default_user'] = {
-                "user_id": 0,  
+            user_template = {} #make an empty dictionary
+            user_template["data"] = [] #create an empty list as the first key / value
+
+
+
+            default_user = { # create default account
+                "user_id": "tri00",  
                 "username" : 'trial',
-                "pin":0000,
+                "pin":"0000",
                 'balance':{
                     "KES":140, 
                     "USD":0
                 }
             }
 
+            user_template["data"].append(default_user)
+            
             with open(path2, "w") as fresh:
                 json.dump(user_template, fresh, indent=4)
+
                 # users.write('\n')
                 print("\tNew storage file and default user created....")
     except: 
@@ -50,19 +60,25 @@ def add_user(a,b):
             time.sleep(1)
             print("...................................")
             print(f"\tUser {a} created. Account ID -> {id}.")
+        
             
         with open("user_info.json", "r") as chukua:
                 old_content = json.load(chukua)
-                id = a[0:3] + b[2:4]
+                #READING IS DONE AND SAVED AS A VARIABLE
+
+                
+
                 x = {
-                    "user_id": a[0:3] + b[2:4],  
+                    "user_id": a[0:3] + b[2:4],  #LAWRENCE, L=0,A=1,W=2
                     "username" : a,
                     "pin":b,
                     'balance': {
-                        "KES":0, 
+                        "KES":0,
                         "USD":0
                     }
                 }
+
+                id = a[0:3] + b[2:4]
                 old_content["data"].append(x) # adding the data to the json file.
 
         write_to_file(old_content,a,id) #calls the write function and passes the new data
@@ -133,7 +149,7 @@ def view_acct(acct_id,balance = 0):
 
 """
 ****************************************************************************************************
-ADMIN PANEL. WE HAVE TWO INTERFACES, ONE FOR USERS AND THE OTHER FOR THE BANKERS
+ADMIN PANEL. WE HAVE TWO INTERFACES, ONE FOR USERS AND THE OTHER FOR THE BANKERS/admin
 ****************************************************************************************************
 """
 def call_admin():
